@@ -18,7 +18,7 @@ export default function AdminDashboard() {
 
   const checkAuth = async () => {
     try {
-      const response = await fetch("/api/admin/check", {
+      const response = await fetch("api/admin/check", {
         method: "GET",
       });
       if (response.ok) {
@@ -34,7 +34,7 @@ export default function AdminDashboard() {
   };
 
   const handleLogout = async () => {
-    await fetch("/api/admin/logout", { method: "POST" });
+    await fetch("api/admin/logout", { method: "POST" });
     navigate("/admin");
   };
 

@@ -26,7 +26,7 @@ export default function RepairRequestsTab() {
   const fetchRequests = async () => {
     try {
       setLoading(true);
-      const response = await fetch("/api/admin/repair-requests");
+      const response = await fetch("api/admin/repair-requests");
       if (response.ok) {
         const data = await response.json();
         setRequests(data);
@@ -40,7 +40,7 @@ export default function RepairRequestsTab() {
 
   const updateStatus = async (id: string, status: RepairRequest["status"]) => {
     try {
-      const response = await fetch(`/api/admin/repair-requests/${id}`, {
+      const response = await fetch(`api/admin/repair-requests/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status }),
@@ -59,7 +59,7 @@ export default function RepairRequestsTab() {
     if (!confirm("Möchten Sie diese Anfrage wirklich löschen?")) return;
 
     try {
-      const response = await fetch(`/api/admin/repair-requests/${id}`, {
+      const response = await fetch(`api/admin/repair-requests/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {

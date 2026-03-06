@@ -24,7 +24,7 @@ export default function CMSEditorTab() {
   const fetchContent = async () => {
     try {
       setLoading(true);
-      const response = await fetch("/api/admin/cms");
+      const response = await fetch("api/admin/cms");
       if (response.ok) {
         const data = await response.json();
         setContent(data);
@@ -45,7 +45,7 @@ export default function CMSEditorTab() {
   const saveContent = async () => {
     try {
       setSaving(true);
-      const response = await fetch("/api/admin/cms", {
+      const response = await fetch("api/admin/cms", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(content),

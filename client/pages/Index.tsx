@@ -192,7 +192,7 @@ export default function Index() {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/repair-requests", {
+      const response = await fetch("api/repair-requests", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
