@@ -179,37 +179,6 @@ function ServiceCard({
 }
 
 export default function Index() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    device: "",
-    service: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("api/repair-requests", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert("Vielen Dank! Ihre Anfrage wurde erfolgreich eingereicht. Wir melden uns bald bei Ihnen!");
-        setFormData({ name: "", email: "", phone: "", device: "", service: "", message: "" });
-      } else {
-        alert("Fehler beim Senden der Anfrage. Bitte versuchen Sie es später erneut.");
-      }
-    } catch (err) {
-      console.error("Fehler:", err);
-      alert("Fehler beim Senden der Anfrage. Bitte versuchen Sie es später erneut.");
-    }
-  };
-
   return (
     <Layout>
       {/* Hero Section */}
@@ -437,7 +406,8 @@ export default function Index() {
             <div className="lg:w-1/2 fade-in">
               <h3 className="text-2xl font-bold mb-4">Kontaktieren Sie uns</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form name="reparaturauftrag" method="POST" data-netlify="true" className="space-y-4">
+                <input type="hidden" name="form-name" value="reparaturauftrag" />
                 <div>
                   <label htmlFor="name" className="block mb-1">
                     Name*
@@ -445,11 +415,8 @@ export default function Index() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     required
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
                     className="w-full px-4 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   />
                 </div>
@@ -460,11 +427,8 @@ export default function Index() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
                     className="w-full px-4 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   />
                 </div>
@@ -478,10 +442,7 @@ export default function Index() {
                   <input
                     type="tel"
                     id="phone"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
+                    name="phone"
                     className="w-full px-4 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
                     placeholder="Für schnelleren Kontakt"
                   />
@@ -496,11 +457,8 @@ export default function Index() {
                   <input
                     type="text"
                     id="device"
+                    name="device"
                     required
-                    value={formData.device}
-                    onChange={(e) =>
-                      setFormData({ ...formData, device: e.target.value })
-                    }
                     className="w-full px-4 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   />
                 </div>
@@ -510,11 +468,8 @@ export default function Index() {
                   </label>
                   <select
                     id="service"
+                    name="service"
                     required
-                    value={formData.service}
-                    onChange={(e) =>
-                      setFormData({ ...formData, service: e.target.value })
-                    }
                     className="w-full px-4 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   >
                     <option value="">Bitte auswählen</option>
@@ -533,12 +488,9 @@ export default function Index() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     required
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
                     className="w-full px-4 py-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   ></textarea>
                 </div>
