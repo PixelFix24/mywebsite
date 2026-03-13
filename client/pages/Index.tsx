@@ -406,8 +406,7 @@ export default function Index() {
             <div className="lg:w-1/2 fade-in">
               <h3 className="text-2xl font-bold mb-4">Kontaktieren Sie uns</h3>
 
-              <form name="reparaturauftrag" method="POST" data-netlify="true" className="space-y-4">
-                <input type="hidden" name="form-name" value="reparaturauftrag" />
+              <form action="https://formspree.io/f/mjgarqrq" method="POST" className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block mb-1">
                     Name*
