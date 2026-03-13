@@ -24,10 +24,12 @@
     "cookie-parser": "^1.4.6",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "nodemailer": "^6.9.7",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "@hookform/resolvers": "^5.2.1",
+    "@types/nodemailer": "^6.4.14",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-aspect-ratio": "^1.1.7",

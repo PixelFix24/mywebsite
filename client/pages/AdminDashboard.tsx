@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { LogOut, Settings, MessageSquare } from "lucide-react";
+import { LogOut, Settings, MessageSquare, Mail } from "lucide-react";
 import RepairRequestsTab from "@/components/AdminTabs/RepairRequestsTab";
 import CMSEditorTab from "@/components/AdminTabs/CMSEditorTab";
+import EmailResponseTab from "@/components/AdminTabs/EmailResponseTab";
 
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState<"requests" | "cms">("requests");
+  const [activeTab, setActiveTab] = useState<"requests" | "cms" | "email">("requests");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -95,12 +96,24 @@ export default function AdminDashboard() {
             <Settings size={20} />
             Website bearbeiten
           </button>
+          <button
+            onClick={() => setActiveTab("email")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition ${
+              activeTab === "email"
+                ? "bg-blue-600 text-white"
+                : "bg-white text-gray-700 hover:bg-gray-100"
+            }`}
+          >
+            <Mail size={20} />
+            Email-Antworten
+          </button>
         </div>
 
         {/* Tab Content */}
         <div className="bg-white rounded-lg shadow">
           {activeTab === "requests" && <RepairRequestsTab />}
           {activeTab === "cms" && <CMSEditorTab />}
+          {activeTab === "email" && <EmailResponseTab />}
         </div>
       </div>
     </div>
