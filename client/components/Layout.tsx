@@ -87,7 +87,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <i className="fas fa-phone mr-2"></i> 017679817190
             </a>
             <a
-              href="https://wa.me/017679817190"
+              href="https://wa.me/4917679817190"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition"
