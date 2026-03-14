@@ -34,8 +34,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="flex flex-col min-h-screen">
       {/* Important Notice Banner */}
       <div className="bg-yellow-400 text-black text-center py-3 px-4 font-bold text-lg">
-        WICHTIG: Reparaturen nur mit Termin! Termine telefonisch, WhatsApp oder
-        online buchbar unter "Reparatur buchen"
+        WICHTIG: Reparaturen nur mit Termin! Termine telefonisch, per WhatsApp oder
+        online über „Jetzt Reparatur buchen" vereinbaren.
       </div>
 
 
