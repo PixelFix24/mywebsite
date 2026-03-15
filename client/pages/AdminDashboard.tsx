@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { LogOut, Settings, MessageSquare, Mail } from "lucide-react";
+import { LogOut, Settings, MessageSquare, Mail, Ticket } from "lucide-react";
 import RepairRequestsTab from "@/components/AdminTabs/RepairRequestsTab";
 import CMSEditorTab from "@/components/AdminTabs/CMSEditorTab";
 import EmailResponseTab from "@/components/AdminTabs/EmailResponseTab";
+import TicketManagementTab from "@/components/AdminTabs/TicketManagementTab";
 
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState<"requests" | "cms" | "email">("requests");
+  const [activeTab, setActiveTab] = useState<"requests" | "cms" | "email" | "tickets">("tickets");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
